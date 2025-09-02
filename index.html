@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research & Innovation — Research Support | Tree & Sitemap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --card: 255 255 255; --muted: 245 246 248; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .card { background: rgb(var(--card)); box-shadow: 0 10px 30px rgba(0,0,0,.06); border-radius: 1rem; }
+    .tree-line { position: relative; }
+    .tree-line::before { content: ""; position: absolute; left: -22px; top: 1.25rem; bottom: -0.75rem; width: 1px; background: #e5e7eb; }
+    .tree-line::after  { content: ""; position: absolute; left: -22px; top: 1.25rem; width: 18px; height: 1px; background: #e5e7eb; }
+    .tree-root > .tree-line::before { display:none; }
+    .tree-root > .tree-line::after { display:none; }
+    .chev { transition: transform .2s ease; }
+    .rotate-90 { transform: rotate(90deg); }
+    .btn { @apply inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50; }
+    .badge { @apply inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-600; }
+    .pill { @apply px-3 py-1.5 rounded-full text-sm font-medium border border-slate-200; }
+  </style>
+</head>
+<body class="bg-[rgb(var(--muted))] text-slate-800">
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-slate-200/60">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 grid place-content-center bg-black text-white rounded-2xl font-bold">R&I</div>
+        <div>
+          <h1 class="text-xl md:text-2xl font-semibold">Research & Innovation — Research Support</h1>
+          <p class="text-sm text-slate-500">Interactive site map / tree diagram generated from your spreadsheet</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2 items-center">
+        <label class="relative">
+          <svg class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input id="search" type="search" placeholder="Search pages…" class="w-72 md:w-80 pl-10 pr-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-300" />
+        </label>
+        <div class="hidden md:block w-px h-6 bg-slate-200 mx-1"></div>
+        <button id="view-tree" class="pill bg-black/90 text-white">Tree</button>
+        <button id="view-sitemap" class="pill">Sitemap</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto p-4">
+    <section id="stats" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+      <div class="card p-4">
+        <div class="text-xs text-slate-500">Total nodes</div>
+        <div id="stat-nodes" class="text-2xl font-semibold">—</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs text-slate-500">Pages with links</div>
+        <div id="stat-linked" class="text-2xl font-semibold">—</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs text-slate-500">Top-level sections</div>
+        <div id="stat-top" class="text-2xl font-semibold">—</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs text-slate-500">Last build</div>
+        <div id="stat-build" class="text-2xl font-semibold">—</div>
+      </div>
+    </section>
+
+    <!-- Tree View -->
+    <section id="tree-view" class="card p-4 md:p-6">
+      <div id="tree" class="tree-root"></div>
+    </section>
+
+    <!-- Sitemap View -->
+    <section id="sitemap-view" class="card p-4 md:p-6 hidden">
+      <div id="sitemap" class="grid md:grid-cols-2 gap-6"></div>
+    </section>
+  </main>
+
+  <footer class="max-w-6xl mx-auto px-4 py-10 text-center text-sm text-slate-500">
+    Built from <code>site_data.json</code>. Host this file alongside <code>index.html</code> on GitHub Pages.
+  </footer>
+
+  <script>
+    // --- Utilities ---
+    const $ = (q, el=document) => el.querySelector(q);
+    const $$ = (q, el=document) => Array.from(el.querySelectorAll(q));
+
+    function walk(node, fn, depth=0, path=[]) {
+      fn(node, depth, path);
+      (node.children||[]).forEach(ch => walk(ch, fn, depth+1, [...path, node]));
+    }
+
+    function flatten(root) {
+      const out = [];
+      walk(root, (n, d, path) => out.push({ node:n, depth:d, path:path.map(p=>p.title) }));
+      return out;
+    }
+
+    function countLinked(root) {
+      let c = 0;
+      walk(root, (n)=>{ if (n.meta && n.meta.url) c++; });
+      return c;
+    }
+
+    function renderTree(container, root, filterTerm="") {
+      container.innerHTML = "";
+
+      function makeRow(n, depth) {
+        const hasKids = (n.children && n.children.length);
+        const id = crypto.randomUUID();
+        const row = document.createElement('div');
+        row.className = `tree-line pl-${Math.min(depth*6, 24)} relative`;
+
+        const visible = document.createElement('div');
+        visible.className = "flex items-start gap-2 py-2";
+
+        // Chevron
+        const chev = document.createElement('button');
+        chev.className = "chev mt-1 w-5 h-5 grid place-content-center rounded hover:bg-slate-100";
+        chev.setAttribute('aria-label','toggle');
+        chev.innerHTML = hasKids ? `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>` : `<span class="w-1.5 h-1.5 rounded-full bg-slate-300 block"></span>`;
+
+        // Title & meta
+        const title = document.createElement('div');
+        title.className = "flex-1";
+        const name = document.createElement('div');
+        name.className = "font-medium leading-6";
+        name.innerHTML = highlight(n.title, filterTerm);
+        title.appendChild(name);
+
+        if (n.meta && (n.meta.url || n.meta.notes)) {
+          const meta = document.createElement('div');
+          meta.className = "flex flex-wrap gap-2 mt-1";
+          if (n.meta.url) {
+            const a = document.createElement('a');
+            a.href = n.meta.url; a.target = "_blank"; a.rel = "noopener";
+            a.className = "btn text-xs";
+            a.innerHTML = `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg> Open page`;
+            meta.appendChild(a);
+          }
+          const info = document.createElement('span');
+          info.className = "badge";
+          const lm = n.meta.last_modified ? ` • ${n.meta.last_modified}` : "";
+          const sf = n.meta.source_file ? ` • ${n.meta.source_file}` : "";
+          info.textContent = `${n.meta.sheet || ""}${lm}${sf}`.replace(/^\s+•\s+/,'');
+          if (info.textContent) meta.appendChild(info);
+          title.appendChild(meta);
+        }
+
+        // Children container
+        const kids = document.createElement('div');
+        kids.className = "pl-6";
+        kids.id = id;
+
+        // Attach
+        visible.appendChild(chev);
+        visible.appendChild(title);
+        row.appendChild(visible);
+        row.appendChild(kids);
+
+        if (hasKids) {
+          // default expanded for root & top-level
+          let expanded = depth < 2;
+          if (!expanded) kids.classList.add('hidden');
+          if (expanded) chev.classList.add('rotate-90');
+          chev.addEventListener('click', () => {
+            expanded = !expanded;
+            kids.classList.toggle('hidden');
+            chev.classList.toggle('rotate-90');
+          });
+          n.children.forEach(ch => kids.appendChild(makeRow(ch, depth+1)));
+        } else {
+          chev.disabled = true;
+        }
+
+        return row;
+      }
+
+      container.appendChild(makeRow(root, 0));
+    }
+
+    function highlight(text, term) {
+      if (!term) return escapeHtml(text);
+      const re = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'ig');
+      return escapeHtml(text).replace(re, '<mark class="px-1 rounded bg-yellow-200/70">$1</mark>');
+    }
+
+    function escapeHtml(s) { return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c])); }
+
+    function buildSitemap(container, root, filterTerm="") {
+      container.innerHTML = "";
+      // Group by the first child level (top-level sections)
+      const top = root.children || [];
+      top.forEach(section => {
+        const card = document.createElement('div');
+        card.className = "border border-slate-200 rounded-2xl p-4";
+        const h = document.createElement('h3');
+        h.className = "text-lg font-semibold flex items-center gap-2";
+        h.innerHTML = `<span>${highlight(section.title, filterTerm)}</span> <span class="badge">${countLeaves(section)} pages</span>`;
+        card.appendChild(h);
+
+        const list = document.createElement('div');
+        list.className = "mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2";
+
+        // gather leaves under this section
+        const leaves = [];
+        walk(section, (n, d, path)=>{
+          if (!n.children || n.children.length === 0) {
+            leaves.push(n);
+          }
+        });
+
+        leaves
+          .filter(n => !filterTerm || n.title.toLowerCase().includes(filterTerm))
+          .slice(0, 80) // cap per section for readability
+          .forEach(n => {
+            const item = document.createElement('a');
+            const url = n.meta && n.meta.url ? n.meta.url : '#';
+            item.href = url;
+            if (url !== '#') { item.target = "_blank"; item.rel = "noopener"; }
+            item.className = "group flex items-start gap-2 p-2 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200";
+            item.innerHTML = `
+              <svg class="w-4 h-4 mt-1 text-slate-400 group-hover:text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              <div>
+                <div class="text-sm font-medium">${highlight(n.title, filterTerm)}</div>
+                ${n.meta && n.meta.url ? `<div class="text-xs text-slate-500 truncate max-w-[40ch]">${escapeHtml(n.meta.url)}</div>` : ''}
+              </div>`;
+            list.appendChild(item);
+          });
+        card.appendChild(list);
+        container.appendChild(card);
+      });
+    }
+
+    function countLeaves(node) {
+      let c=0; walk(node, (n)=>{ if(!n.children || n.children.length===0) c++; }); return c;
+    }
+
+    // --- App boot ---
+    const search = $('#search');
+    const viewTreeBtn = $('#view-tree');
+    const viewSiteBtn = $('#view-sitemap');
+    const treeView = $('#tree-view');
+    const siteView = $('#sitemap-view');
+    const treeDiv = $('#tree');
+    const sitemapDiv = $('#sitemap');
+
+    let ROOT = null;
+
+    function updateStats() {
+      const flat = flatten(ROOT);
+      $('#stat-nodes').textContent = flat.length.toLocaleString();
+      $('#stat-linked').textContent = countLinked(ROOT).toLocaleString();
+      $('#stat-top').textContent = (ROOT.children?ROOT.children.length:0);
+      const d = new Date();
+      $('#stat-build').textContent = d.toLocaleString();
+    }
+
+    function renderAll() {
+      const term = search.value.trim().toLowerCase();
+      renderTree(treeDiv, ROOT, term);
+      buildSitemap(sitemapDiv, ROOT, term);
+      updateStats();
+    }
+
+    // Toggle views
+    viewTreeBtn.addEventListener('click', () => {
+      treeView.classList.remove('hidden');
+      siteView.classList.add('hidden');
+      viewTreeBtn.classList.add('bg-black/90','text-white');
+      viewSiteBtn.classList.remove('bg-black/90','text-white');
+    });
+    viewSiteBtn.addEventListener('click', () => {
+      siteView.classList.remove('hidden');
+      treeView.classList.add('hidden');
+      viewSiteBtn.classList.add('bg-black/90','text-white');
+      viewTreeBtn.classList.remove('bg-black/90','text-white');
+    });
+
+    // Debounced search
+    let t;
+    search.addEventListener('input', () => { clearTimeout(t); t = setTimeout(renderAll, 120); });
+
+    // Fetch JSON produced from the spreadsheet
+    async function boot() {
+      try {
+        const res = await fetch('site_data.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Missing site_data.json. Place it next to index.html');
+        ROOT = await res.json();
+      } catch (e) {
+        // Friendly fallback with instructions
+        ROOT = {
+          title: "Your Site Root",
+          children: [
+            { title: "Getting Started", children: [ { title: "Overview", meta: { url: "#" } }, { title: "Policies", meta:{ url: "#" } } ] },
+            { title: "Research Support", children: [ { title: "Funding", children: [ { title: "Grants", meta:{ url: "#" } } ] } ] }
+          ]
+        };
+        console.warn(e);
+        const warn = document.createElement('div');
+        warn.className = "max-w-6xl mx-auto mt-4 p-3 rounded-xl bg-yellow-50 border border-yellow-200 text-yellow-800";
+        warn.innerHTML = `⚠️ <strong>site_data.json not found.</strong> Showing demo data. Put the exported <code>site_data.json</code> in the same folder as <code>index.html</code>.`;
+        document.body.prepend(warn);
+      }
+      renderAll();
+    }
+
+    boot();
+  </script>
+</body>
+</html>

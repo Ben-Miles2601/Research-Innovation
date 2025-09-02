@@ -1,263 +1,230 @@
 {
   "title": "Research & Innovation",
-  "meta": {
-    "url": "https://leeds365.sharepoint.com/sites/ResearchInnovation"
-  },
+  "meta": { "url": "https://leeds365.sharepoint.com/sites/ResearchInnovation" },
   "children": [
     {
       "title": "Research support",
-      "meta": {
-        "url": "https://leeds365.sharepoint.com/sites/Research-Support"
-      },
+      "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support" },
       "children": [
         {
           "title": "Funding opportunities",
-          "meta": {
-            "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Funding-opportunities.aspx"
-          },
+          "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Funding-opportunities.aspx" },
           "children": [
-            {
-              "title": "Pivot-RP",
-              "meta": {
-                "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Pivot-RP.aspx"
-              }
-            },
-            {
-              "title": "Curated searches on Pivot",
-              "meta": {
-                "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Curate.aspx"
-              }
-            },
+            { "title": "Pivot-RP", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Pivot-RP.aspx" } },
+            { "title": "Curated searches on Pivot", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Curate.aspx" } },
             {
               "title": "Guide to UKRI Funding Service or Resources for researchers using new UKRI funding service",
-              "meta": {
-                "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Resources-for-Researchers-Using-the-New-UKRI-Funding-Service.aspx"
-              },
+              "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Resources-for-Researchers-Using-the-New-UKRI-Funding-Service.aspx" },
               "children": [
-                {
-                  "title": "Vision-and-Approach",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Vision-and-Approach.aspx#vision"
-                  }
-                },
-                {
-                  "title": "Applicant-and-Team-Capability-to-Deliver",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Applicant-and-Team-Capability-to-Deliver.aspx"
-                  }
-                },
-                {
-                  "title": "Ethics-and-Responsible-Research-and-Innovation-(RRI)",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Ethics-and-Responsible-Research-and-Innovation-(RRI).aspx"
-                  }
-                }
-              ]
-            },
-            {
-              "title": "Applying for funding",
-              "meta": {
-                "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Applying-for-Funding(1).aspx"
-              },
-              "children": [
-                {
-                  "title": "Developing-your-proposal",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Developing-your-proposal.aspx"
-                  }
-                },
-                {
-                  "title": "Submission-checklist",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Submission-checklist.aspx"
-                  },
-                  "children": [
-                    {
-                      "title": "EPSRC-Standard-Grants-quick-start-guide",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Standard-Grants-quick-start-guide.aspx"
-                      }
-                    },
-                    {
-                      "title": "EPSRC-Fellowships-checklist",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships-checklist(1).aspx"
-                      }
-                    },
-                    {
-                      "title": "Checking-the-funder-remit",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Checking-the-funder-remit.aspx"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "title": "Resources-and-tips",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Resources-and-tips.aspx"
-                  },
-                  "children": [
-                    {
-                      "title": "research_data_management_explained",
-                      "meta": {
-                        "url": "https://library.leeds.ac.uk/info/14062/research_data_management/61/research_data_management_explained"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "title": "Peer-review",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Peer-review.aspx"
-                  },
-                  "children": [
-                    {
-                      "title": "Key-questions-for-researchers",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Key-questions-for-researchers.aspx"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "title": "Institutional-letters-of-support",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Institutional-letters-of-support.aspx"
-                  }
-                },
-                {
-                  "title": "Costing-and-Pricing",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Costing-and-Pricing.aspx"
-                  }
-                },
-                {
-                  "title": "Approval-Process",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Approval-Process.aspx"
-                  }
-                },
-                {
-                  "title": "Submission-Systems",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Submission-Systems.aspx"
-                  },
-                  "children": [
-                    {
-                      "title": "Kristal-Phase-2",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Kristal-Phase-2.aspx"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "title": "After-submission - the process",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/After-submission.aspx"
-                  }
-                },
-                {
-                  "title": "Response-to-reviewers",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Response-to-reviewers.aspx"
-                  }
-                },
-                {
-                  "title": "Interviews",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Interviews.aspx"
-                  }
-                },
-                {
-                  "title": "What-if-youre-not-successful",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/What-if-you%27re-not-successful-.aspx"
-                  }
-                }
-              ]
-            },
-            {
-              "title": "Institutionally-coordinated-opportunities",
-              "meta": {
-                "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Institutionally-coordinated-opportunities.aspx"
-              },
-              "children": [
-                {
-                  "title": "EDI-and-internal-demand-management",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EDI-and-internal-demand-management.aspx"
-                  }
-                },
-                {
-                  "title": "BBSRC-Fellowship",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/BBSRC-Fellowship.aspx"
-                  }
-                },
-                {
-                  "title": "EPSRC-Fellowships--2024-internal-process-and-resource",
-                  "meta": {
-                    "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--2024-internal-process-and-resources.aspx"
-                  },
-                  "children": [
-                    {
-                      "title": "EPSRC-Fellowships--Is-a-fellowship-the-right-approach",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Is-a-fellowship-the-right-approach-.aspx"
-                      }
-                    },
-                    {
-                      "title": "EPSRC-fellowships--Submitting-an-expression-of-interest",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-fellowships--Submitting-an-expression-of-interest.aspx"
-                      }
-                    },
-                    {
-                      "title": "EPSRC-fellowships--Writing-your-application",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-fellowships--Writing-your-application.aspx"
-                      }
-                    },
-                    {
-                      "title": "EPSRC-Fellowships--Getting-feedback-on-your-developing-application",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Getting-feedback-on-your-developing-application.aspx"
-                      }
-                    },
-                    {
-                      "title": "EPSRC-Fellowships--Submitting-your-application",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Submitting-your-application.aspx"
-                      },
-                      "children": [
-                        {
-                          "title": "applying-for-funding/approvals",
-                          "meta": {
-                            "url": "https://ris.leeds.ac.uk/applying-for-funding/approvals/"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "title": "EPSRC-Fellowships--Writing-your-PI-response-to-reviewer-comments",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Writing-your-PI-response-to-reviewer-comments.aspx"
-                      }
-                    },
-                    {
-                      "title": "EPSRC-Fellowships--preparing-for-your-interview",
-                      "meta": {
-                        "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--preparing-for-your-interview.aspx"
-                      }
-                    }
-                  ]
-                }
+                { "title": "Vision-and-Approach", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Vision-and-Approach.aspx#vision" } },
+                { "title": "Applicant-and-Team-Capability-to-Deliver", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Applicant-and-Team-Capability-to-Deliver.aspx" } },
+                { "title": "Ethics-and-Responsible-Research-and-Innovation-(RRI)", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Ethics-and-Responsible-Research-and-Innovation-(RRI).aspx" } }
               ]
             }
           ]
-        }
+        },
+        {
+          "title": "Applying for funding",
+          "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Applying-for-Funding(1).aspx" },
+          "children": [
+            { "title": "Developing-your-proposal", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Developing-your-proposal.aspx" } },
+            {
+              "title": "Submission-checklist",
+              "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Submission-checklist.aspx" },
+              "children": [
+                { "title": "EPSRC-Standard-Grants-quick-start-guide", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Standard-Grants-quick-start-guide.aspx" } },
+                { "title": "EPSRC-Fellowships-checklist", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships-checklist(1).aspx" } },
+                { "title": "Checking-the-funder-remit", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Checking-the-funder-remit.aspx" } }
+              ]
+            },
+            {
+              "title": "Resources-and-tips",
+              "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Resources-and-tips.aspx" },
+              "children": [
+                { "title": "research_data_management_explained", "meta": { "url": "https://library.leeds.ac.uk/info/14062/research_data_management/61/research_data_management_explained" } }
+              ]
+            },
+            {
+              "title": "Peer-review",
+              "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Peer-review.aspx" },
+              "children": [
+                { "title": "Key-questions-for-researchers", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Key-questions-for-researchers.aspx" } }
+              ]
+            },
+            { "title": "Institutional-letters-of-support", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Institutional-letters-of-support.aspx" } },
+            { "title": "Costing-and-Pricing", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Costing-and-Pricing.aspx" } },
+            { "title": "Approval-Process", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Approval-Process.aspx" } },
+            {
+              "title": "Submission-Systems",
+              "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Submission-Systems.aspx" },
+              "children": [
+                { "title": "Kristal-Phase-2", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Kristal-Phase-2.aspx" } }
+              ]
+            },
+            { "title": "After-submission - the process", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/After-submission.aspx" } },
+            { "title": "Response-to-reviewers", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Response-to-reviewers.aspx" } },
+            { "title": "Interviews", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Interviews.aspx" } },
+            { "title": "What-if-youre-not-successful", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/What-if-you%27re-not-successful-.aspx" } }
+          ]
+        },
+        {
+          "title": "Institutionally-coordinated-opportunities",
+          "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Institutionally-coordinated-opportunities.aspx" },
+          "children": [
+            { "title": "EDI-and-internal-demand-management", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EDI-and-internal-demand-management.aspx" } },
+            { "title": "BBSRC-Fellowship", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/BBSRC-Fellowship.aspx" } },
+            {
+              "title": "EPSRC-Fellowships--2024-internal-process-and-resource",
+              "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--2024-internal-process-and-resources.aspx" },
+              "children": [
+                { "title": "EPSRC-Fellowships--Is-a-fellowship-the-right-approach", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Is-a-fellowship-the-right-approach-.aspx" } },
+                { "title": "EPSRC-fellowships--Submitting-an-expression-of-interest", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-fellowships--Submitting-an-expression-of-interest.aspx" } },
+                { "title": "EPSRC-fellowships--Writing-your-application", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-fellowships--Writing-your-application.aspx" } },
+                { "title": "EPSRC-Fellowships--Getting-feedback-on-your-developing-application", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Getting-feedback-on-your-developing-application.aspx" } },
+                {
+                  "title": "EPSRC-Fellowships--Submitting-your-application",
+                  "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Submitting-your-application.aspx" },
+                  "children": [
+                    { "title": "applying-for-funding/approvals", "meta": { "url": "https://ris.leeds.ac.uk/applying-for-funding/approvals/" } }
+                  ]
+                },
+                { "title": "EPSRC-Fellowships--Writing-your-PI-response-to-reviewer-comments", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Writing-your-PI-response-to-reviewer-comments.aspx" } },
+                { "title": "EPSRC-Fellowships--preparing-for-your-interview", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--preparing-for-your-interview.aspx" } },
+                { "title": "EPSRC-Fellowships--Is-a-fellowship-the-right-approach (duplicate)", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--Is-a-fellowship-the-right-approach-.aspx" } }
+              ]
+            },
+            { "title": "NERC-Independent-Research-Fellowships", "meta": { "url": "https://leeds365.sharepoint.com/:u:/r/sites/Research-Support/SitePages/NERC-Independent-Research-Fellowships.aspx?csf=1&web=1&e=vG3Vjn" } },
+            { "title": "NIHR-Postdoctoral-Fellowships-Doctoral-Fellowships", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/NIHR-Postdoctoral-Fellowships-%26-Doctoral-Fellowships.aspx" } },
+            { "title": "NIHR-Research-Professorships-and-Global-Research-Professorships", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/NIHR-Research-Professorships-and-Global-Research-Professorships.aspx" } },
+            { "title": "RAE-research-fellowships", "meta": { "url": "https://leeds365.sharepoint.com/:u:/r/sites/ResearchandInnovationService/fundingopportunities/SitePages/RAE-research-fellowships.aspx?csf=1&e=R2w8Wb" } },
+            { "title": "Royal-Society-Faraday-Discovery-Fellowships", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Royal-Society-Faraday-Discovery-Fellowships.aspx" } },
+            { "title": "Royal-Society-University-Research-Fellowship", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Royal-Society-University-Research-Fellowship.aspx" } },
+            { "title": "UKRI-Future-Leader-Fellowships-(FLFs)", "meta": { "url": "https://leeds365.sharepoint.com/:u:/r/sites/Research-Support/SitePages/UKRI-Future-Leader-Fellowships-(FLFs).aspx?csf=1&web=1&e=O4hVcU" } },
+            { "title": "Wellcome-Career-Development-Awards", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Wellcome-Career-Development-Awards.aspx" } },
+            { "title": "Wellcome-Early-Career-Awards", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Wellcome-Early-Career-Awards.aspx" } },
+            { "title": "Support-and-Processes-for-AHRC-grants-in-responsive-mode", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Support-and-Processes-for-AHRC-grants-in-responsive-mode.aspx?Mode=Edit" } },
+            { "title": "ESRC-research-grants", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/ESRC-research-grants-(open-call.aspx?OR=Teams-HL&CT=1723194687001&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNDA3MTEyODgyNSJ9#orgAssets" } },
+            { "title": "EPSRC-New-Investigator-Awards", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-New-Investigator-Awards.aspx" } },
+            { "title": "MRC-Transition-to-Independence-Awards", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/MRC-Transition-to-Independence-Awards.aspx" } },
+            { "title": "NERC-Discovery-Science", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/NERC-Discovery-Science.aspx" } },
+            { "title": "UKRI cross research council responsive mode Round 2", "meta": { "url": "https://leeds365.sharepoint.com/sites/ResearchandInnovationService/fundingopportunities/SitePages/UKRI-Cros.aspx?source=https%3a//leeds365.sharepoint.com/sites/ResearchandInnovationService/fundingopportunities/SitePages/Forms/ByAuthor.aspx" } },
+            { "title": "EPSRC-New-Investigator-Awards (duplicate)", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-New-Investigator-Awards.aspx" } },
+            { "title": "EPSRC-Standard-Grant-(Responsive-Mode)", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Standard-Grant-(Responsive-Mode).aspx" } },
+            { "title": "BBSRC-Alert-Mid-Range-Equipment", "meta": { "url": "https://leeds365.sharepoint.com/:u:/r/sites/Research-Support/SitePages/BBSRC-Alert-Mid-Range-Equipment.aspx?csf=1&web=1&e=Sqj2PF" } },
+            { "title": "EPSRC-Strategic-Infrastructure", "meta": { "url": "https://leeds365.sharepoint.com/:u:/r/sites/Research-Support/SitePages/EPSRC-Strategic-Infrastructure.aspx?csf=1&web=1&e=Ph3TEp" } },
+            { "title": "MRC-Mid-Range-Equipment-Call-Round-4---Internal-Process", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/MRC-Mid-Range-Equipment-Call-Round-4---Internal-Process.aspx" } },
+            { "title": "ESRC-Centres-call", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/ESRC-Centres-call.aspx" } },
+            { "title": "Leverhulme-Doctoral-Scholarships", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Leverhulme-Doctoral-Scholarships.aspx" } },
+            { "title": "Leverhulme-Research-Centres-2024", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Leverhulme-Research-Centres-2024.aspx" } },
+            { "title": "Leverhulme-Research-Leadership-Awards", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Leverhulme-Research-Leadership-Awards.aspx" } }
+          ]
+        },
+        { "title": "Central institutional match funding", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Central-institutional-match-funding-for-grant-applications.aspx" } },
+        { "title": "Responding To Tenders", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Responding-to-tenders.aspx" } },
+        { "title": "UK funders", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Funders.aspx" } },
+        { "title": "UK Funder strategy groups", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/University-of-Leeds---UK-Funder-Strategy-Groups.aspx" } },
+        { "title": "Research professional", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Research-Professional.aspx" } },
+        { "title": "Email network groups", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Email-networks.aspx" } },
+        { "title": "Meet the UK Research Development Team", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Meet-the-UK-Research-Development-Team.aspx" } },
+        {
+          "title": "EU funding",
+          "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EU-funding.aspx" },
+          "children": [
+            { "title": "Post Brexit Environment and UK Association", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Post-Brexit-Environment-and-UK-Association.aspx" } },
+            { "title": "Open-Science-in-Horizon-Europe", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Open-Science-in-Horizon-Europe.aspx" } },
+            { "title": "Gender-Equality-Plan-(GEP)-in-Horizon-Europe", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Gender-Equality-Plan-(GEP)-in-Horizon-Europe.aspx" } },
+            { "title": "Success @ Leeds", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Success@Leeds.aspx" } },
+            { "title": "Other-EU-programmes", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Other-EU-programmes.aspx" } },
+            {
+              "title": "EU-pre-award-support",
+              "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EU-pre-award-support.aspx" },
+              "children": [
+                { "title": "Identifying-the-right-EU-funding-scheme", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Identifying-the-right-EU-funding-scheme.aspx" } },
+                { "title": "Signing-an-eu-grant-agreement", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Signing-an-EU-grant-agreement.aspx" } },
+                { "title": "Preparing an EU proposal", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Preparing-an-EU-proposal.aspx" } }
+              ]
+            },
+            {
+              "title": "EU-post-award-support",
+              "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EU-post-award-support.aspx" },
+              "children": [
+                { "title": "Horizon-2020-Grant-management", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Horizon-2020-Grant-management.aspx" } },
+                {
+                  "title": "Horizon-Europe-Grant-Management",
+                  "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Horizon-Europe-Grant-Management.aspx" },
+                  "children": [
+                    { "title": "Awards-funded-by-Innovate-UK-via-the-IFS", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Awards-funded-by-Innovate-UK-via-the-IFS.aspx" } },
+                    { "title": "Awards-funded-by-UKRI-via-Je-S", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Awards-funded-by-UKRI-via-Je-S.aspx" } }
+                  ]
+                }
+              ]
+            },
+            { "title": "EU-funding-team", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EU-funding-team.aspx" } },
+            { "title": "Networking-External-Engagement", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Networking-%26-External-Engagement.aspx" } }
+          ]
+        },
+        { "title": "International Science Partnership Fund", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/ODA.aspx?csf=1&web=1&e=bDQmKs&CID=c62d2052-4357-4468-bd47-4c0c5174b60f" } },
+        {
+          "title": "International funding US Government",
+          "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/International-funding---US-Government.aspx?csf=1&web=1&e=HUGHrb&cid=04e1a633-f3d7-4956-85c7-ac6564ae5577" },
+          "children": [
+            { "title": "nih-and-federal-usa-funding", "meta": { "url": "https://ris.leeds.ac.uk/managing-awards/managing-live-awards/nih-and-federal-usa-funding/" } },
+            { "title": "NIH-financial-conflict-of-interest-guidance", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/NIH-financial-conflict-of-interest-guidance.aspx" } },
+            { "title": "Conflicts-of-interest", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Conflicts-of-interest.aspx" } }
+          ]
+        },
+        { "title": "Pump-priming", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Pump-priming.aspx?csf=1&web=1&e=wbbpgz" } },
+        { "title": "Cheney-Fellowships", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Cheney-Fellowships.aspx" } },
+        {
+          "title": "Innovation-funding",
+          "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Innovation-funding.aspx" },
+          "children": [
+            {
+              "title": "Institutional-Translational-Funding",
+              "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Institutional-Translational-Funding.aspx" },
+              "children": [
+                { "title": "Impact-Acceleration-Funding", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Impact-Acceleration-Funding.aspx" } },
+                { "title": "Translational-Activities-Supported", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Translational-Activities-Supported.aspx" } },
+                { "title": "Call-Schedule-&-Guidance", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Call-Schedule-&-Guidance.aspx" } },
+                { "title": "IAA-Case-Studies", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/IAA-Case-Studies.aspx" } },
+                { "title": "Eligibility-for", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Eligibility-for.aspx" } }
+              ]
+            },
+            {
+              "title": "Research translation and industry linked funding",
+              "meta": { "url": "https://leeds365.sharepoint.com/:u:/r/sites/Research-Support/SitePages/Research%20translation%20and%20industry%20linked%20funding.aspx?csf=1&web=1&e=zYcITt" },
+              "children": [
+                { "title": "Michael-Beverley-Innovation-Fellowship", "meta": { "url": "https://leeds365.sharepoint.com/sites/KnowledgeExchange/SitePages/Michael-Beverley-Innovation-Fellowship.aspx" } },
+                { "title": "Translational-Research-101", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Translational-Research-101.aspx" } },
+                { "title": "innovation-good-practice", "meta": { "url": "https://ris.leeds.ac.uk/skills-and-training/innovation-good-practice/" } }
+              ]
+            },
+            { "title": "Knowledge-Transfer-Partnerships", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Knowledge-Transfer-Partnerships-(KTPs).aspx?csf=1&web=1&e=4TXMbv" } },
+            { "title": "UK-Innovation-Strategy", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/UK-Innovation-Strategy.aspx" } },
+            { "title": "Innovate-UK", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Innovate-UK.aspx" } },
+            { "title": "Innovation-and-Business-Development---Contacts", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Innovation-and-Business-Development---Contacts.aspx" } },
+            { "title": "Other-Innovation-funding", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Other-Innovation-funding.aspx" } }
+          ]
+        },
+        {
+          "title": "Managing-awards",
+          "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Managing-awards.aspx" },
+          "children": [
+            {
+              "title": "Contracts-for-research",
+              "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Contracts-for-research.aspx" },
+              "children": [
+                { "title": "Material-transfer-agreements", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Material-transfer-agreements.aspx" } },
+                { "title": "Non-disclosure-agreements", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Non-disclosure-agreements.aspx" } },
+                { "title": "Online-RIS-Contracts-Agreements-(ORCA)", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Online-RIS-Contracts-Agreements-(ORCA).aspx" } },
+                { "title": "Contracts-team", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Contracts-team.aspx" } }
+              ]
+            },
+            { "title": "conflict-of-interest", "meta": { "url": "https://ris.leeds.ac.uk/applying-for-funding/developing-your-proposal/conflict-of-interest/" } },
+            { "title": "Due-Diligence", "meta": { "url": "https://leeds365.sharepoint.com/sites/ResearchOperations/SitePages/Due-Diligence.aspx?source=https%3a//leeds365.sharepoint.com/sites/ResearchSupport/SitePages/Forms/ByAuthor.aspx" } }
+          ]
+        },
+        { "title": "Equipment-funding", "meta": { "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Equipment-funding.aspx" } }
       ]
     }
   ]

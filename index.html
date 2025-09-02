@@ -1,213 +1,314 @@
-<!DOCTYPE html>
+@@ -0,0 +1,313 @@
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research & Innovation Site Map</title>
-
-  <!-- Bootstrap -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research & Innovation — Research Support | Tree & Sitemap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f8f9fa;
-    }
-
-    #tree, #sitemap {
-      margin-top: 20px;
-    }
-
-    /* Sitemap cards */
-    .sitemap-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 15px;
-    }
-
-    .sitemap-card {
-      background: white;
-      border-radius: 8px;
-      padding: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-
-    .sitemap-card:hover {
-      transform: translateY(-3px);
-    }
-
-    .sitemap-card h5 {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-      color: #0d6efd;
-    }
-
-    .sitemap-card ul {
-      padding-left: 20px;
-      margin: 0;
-    }
-
-    .sitemap-card li {
-      font-size: 0.95rem;
-      margin-bottom: 5px;
-    }
-
-    /* D3 tree styling */
-    .node circle {
-      fill: #0d6efd;
-      stroke: #fff;
-      stroke-width: 2px;
-    }
-
-    .node text {
-      font-size: 12px;
-    }
-
-    .link {
-      fill: none;
-      stroke: #ccc;
-      stroke-width: 2px;
-    }
+    :root { --card: 255 255 255; --muted: 245 246 248; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .card { background: rgb(var(--card)); box-shadow: 0 10px 30px rgba(0,0,0,.06); border-radius: 1rem; }
+    .tree-line { position: relative; }
+    .tree-line::before { content: ""; position: absolute; left: -22px; top: 1.25rem; bottom: -0.75rem; width: 1px; background: #e5e7eb; }
+    .tree-line::after  { content: ""; position: absolute; left: -22px; top: 1.25rem; width: 18px; height: 1px; background: #e5e7eb; }
+    .tree-root > .tree-line::before { display:none; }
+    .tree-root > .tree-line::after { display:none; }
+    .chev { transition: transform .2s ease; }
+    .rotate-90 { transform: rotate(90deg); }
+    .btn { @apply inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50; }
+    .badge { @apply inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-600; }
+    .pill { @apply px-3 py-1.5 rounded-full text-sm font-medium border border-slate-200; }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1 class="mb-4">Research & Innovation Site Map</h1>
+<body class="bg-[rgb(var(--muted))] text-slate-800">
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-slate-200/60">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 grid place-content-center bg-black text-white rounded-2xl font-bold">R&I</div>
+        <div>
+          <h1 class="text-xl md:text-2xl font-semibold">Research & Innovation — Research Support</h1>
+          <p class="text-sm text-slate-500">Interactive site map / tree diagram generated from your spreadsheet</p>
+        </div>
+      </div>
 
-    <!-- Controls -->
-    <div class="d-flex gap-2 mb-3">
-      <button id="treeBtn" class="btn btn-primary">Tree View</button>
-      <button id="sitemapBtn" class="btn btn-secondary">Sitemap View</button>
+      <div class="flex flex-wrap gap-2 items-center">
+        <label class="relative">
+          <svg class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input id="search" type="search" placeholder="Search pages…" class="w-72 md:w-80 pl-10 pr-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-300" />
+        </label>
+        <div class="hidden md:block w-px h-6 bg-slate-200 mx-1"></div>
+        <button id="view-tree" class="pill bg-black/90 text-white">Tree</button>
+        <button id="view-sitemap" class="pill">Sitemap</button>
+      </div>
     </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto p-4">
+    <section id="stats" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+      <div class="card p-4">
+        <div class="text-xs text-slate-500">Total nodes</div>
+        <div id="stat-nodes" class="text-2xl font-semibold">—</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs text-slate-500">Pages with links</div>
+        <div id="stat-linked" class="text-2xl font-semibold">—</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs text-slate-500">Top-level sections</div>
+        <div id="stat-top" class="text-2xl font-semibold">—</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs text-slate-500">Last build</div>
+        <div id="stat-build" class="text-2xl font-semibold">—</div>
+      </div>
+    </section>
 
     <!-- Tree View -->
-    <div id="tree"></div>
+    <section id="tree-view" class="card p-4 md:p-6">
+      <div id="tree" class="tree-root"></div>
+    </section>
 
     <!-- Sitemap View -->
-    <div id="sitemap" style="display:none;"></div>
-  </div>
+    <section id="sitemap-view" class="card p-4 md:p-6 hidden">
+      <div id="sitemap" class="grid md:grid-cols-2 gap-6"></div>
+    </section>
+  </main>
 
-  <!-- D3.js -->
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <footer class="max-w-6xl mx-auto px-4 py-10 text-center text-sm text-slate-500">
+    Built from <code>site_data.json</code>. Host this file alongside <code>index.html</code> on GitHub Pages.
+  </footer>
+
   <script>
-    // Load data
-    fetch("site-data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        renderTree(data);
-        renderSitemap(data);
-      });
+    // --- Utilities ---
+    const $ = (q, el=document) => el.querySelector(q);
+    const $$ = (q, el=document) => Array.from(el.querySelectorAll(q));
 
-    // Switch views
-    document.getElementById("treeBtn").addEventListener("click", () => {
-      document.getElementById("tree").style.display = "block";
-      document.getElementById("sitemap").style.display = "none";
-    });
-    document.getElementById("sitemapBtn").addEventListener("click", () => {
-      document.getElementById("tree").style.display = "none";
-      document.getElementById("sitemap").style.display = "block";
-    });
-
-    // TREE VIEW
-    function renderTree(data) {
-      const width = 900;
-      const dx = 20;
-      const dy = 200;
-
-      const tree = d3.tree().nodeSize([dx, dy]);
-      const root = d3.hierarchy(data);
-      tree(root);
-
-      let x0 = Infinity;
-      let x1 = -x0;
-      root.each((d) => {
-        if (d.x > x1) x1 = d.x;
-        if (d.x < x0) x0 = d.x;
-      });
-
-      const svg = d3
-        .select("#tree")
-        .append("svg")
-        .attr("viewBox", [0, 0, width, x1 - x0 + dx * 2])
-        .style("font", "12px sans-serif");
-
-      const g = svg
-        .append("g")
-        .attr("transform", `translate(${dy / 3},${dx - x0})`);
-
-      g.append("g")
-        .attr("fill", "none")
-        .attr("stroke", "#555")
-        .attr("stroke-opacity", 0.4)
-        .attr("stroke-width", 1.5)
-        .selectAll("path")
-        .data(root.links())
-        .join("path")
-        .attr(
-          "d",
-          d3
-            .linkHorizontal()
-            .x((d) => d.y)
-            .y((d) => d.x)
-        );
-
-      const node = g
-        .append("g")
-        .attr("stroke-linejoin", "round")
-        .attr("stroke-width", 3)
-        .selectAll("g")
-        .data(root.descendants())
-        .join("g")
-        .attr("transform", (d) => `translate(${d.y},${d.x})`);
-
-      node
-        .append("circle")
-        .attr("fill", (d) => (d.children ? "#0d6efd" : "#198754"))
-        .attr("r", 5);
-
-      node
-        .append("text")
-        .attr("dy", "0.31em")
-        .attr("x", (d) => (d.children ? -10 : 10))
-        .attr("text-anchor", (d) => (d.children ? "end" : "start"))
-        .text((d) => d.data.name)
-        .clone(true)
-        .lower()
-        .attr("stroke", "white");
+    function walk(node, fn, depth=0, path=[]) {
+      fn(node, depth, path);
+      (node.children||[]).forEach(ch => walk(ch, fn, depth+1, [...path, node]));
     }
 
-    // SITEMAP VIEW
-    function renderSitemap(data) {
-      const container = document.getElementById("sitemap");
-      const buildCards = (node, parent) => {
-        if (node.children) {
-          node.children.forEach((child) => buildCards(child, parent));
-        } else {
-          const card = document.createElement("div");
-          card.className = "sitemap-card";
-          card.innerHTML = `
-            <h5>${node.name}</h5>
-            ${
-              node.children
-                ? `<ul>${node.children
-                    .map((c) => `<li>${c.name}</li>`)
-                    .join("")}</ul>`
-                : ""
-            }
-          `;
-          parent.appendChild(card);
+    function flatten(root) {
+      const out = [];
+      walk(root, (n, d, path) => out.push({ node:n, depth:d, path:path.map(p=>p.title) }));
+      return out;
+    }
+
+    function countLinked(root) {
+      let c = 0;
+      walk(root, (n)=>{ if (n.meta && n.meta.url) c++; });
+      return c;
+    }
+
+    function renderTree(container, root, filterTerm="") {
+      container.innerHTML = "";
+
+      function makeRow(n, depth) {
+        const hasKids = (n.children && n.children.length);
+        const id = crypto.randomUUID();
+        const row = document.createElement('div');
+        row.className = `tree-line pl-${Math.min(depth*6, 24)} relative`;
+
+        const visible = document.createElement('div');
+        visible.className = "flex items-start gap-2 py-2";
+
+        // Chevron
+        const chev = document.createElement('button');
+        chev.className = "chev mt-1 w-5 h-5 grid place-content-center rounded hover:bg-slate-100";
+        chev.setAttribute('aria-label','toggle');
+        chev.innerHTML = hasKids ? `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>` : `<span class="w-1.5 h-1.5 rounded-full bg-slate-300 block"></span>`;
+
+        // Title & meta
+        const title = document.createElement('div');
+        title.className = "flex-1";
+        const name = document.createElement('div');
+        name.className = "font-medium leading-6";
+        name.innerHTML = highlight(n.title, filterTerm);
+        title.appendChild(name);
+
+        if (n.meta && (n.meta.url || n.meta.notes)) {
+          const meta = document.createElement('div');
+          meta.className = "flex flex-wrap gap-2 mt-1";
+          if (n.meta.url) {
+            const a = document.createElement('a');
+            a.href = n.meta.url; a.target = "_blank"; a.rel = "noopener";
+            a.className = "btn text-xs";
+            a.innerHTML = `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg> Open page`;
+            meta.appendChild(a);
+          }
+          const info = document.createElement('span');
+          info.className = "badge";
+          const lm = n.meta.last_modified ? ` • ${n.meta.last_modified}` : "";
+          const sf = n.meta.source_file ? ` • ${n.meta.source_file}` : "";
+          info.textContent = `${n.meta.sheet || ""}${lm}${sf}`.replace(/^\s+•\s+/,'');
+          if (info.textContent) meta.appendChild(info);
+          title.appendChild(meta);
         }
-      };
-      const wrapper = document.createElement("div");
-      wrapper.className = "sitemap-container";
-      buildCards(data, wrapper);
-      container.appendChild(wrapper);
+
+        // Children container
+        const kids = document.createElement('div');
+        kids.className = "pl-6";
+        kids.id = id;
+
+        // Attach
+        visible.appendChild(chev);
+        visible.appendChild(title);
+        row.appendChild(visible);
+        row.appendChild(kids);
+
+        if (hasKids) {
+          // default expanded for root & top-level
+          let expanded = depth < 2;
+          if (!expanded) kids.classList.add('hidden');
+          if (expanded) chev.classList.add('rotate-90');
+          chev.addEventListener('click', () => {
+            expanded = !expanded;
+            kids.classList.toggle('hidden');
+            chev.classList.toggle('rotate-90');
+          });
+          n.children.forEach(ch => kids.appendChild(makeRow(ch, depth+1)));
+        } else {
+          chev.disabled = true;
+        }
+
+        return row;
+      }
+
+      container.appendChild(makeRow(root, 0));
     }
+
+    function highlight(text, term) {
+      if (!term) return escapeHtml(text);
+      const re = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'ig');
+      return escapeHtml(text).replace(re, '<mark class="px-1 rounded bg-yellow-200/70">$1</mark>');
+    }
+
+    function escapeHtml(s) { return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c])); }
+
+    function buildSitemap(container, root, filterTerm="") {
+      container.innerHTML = "";
+      // Group by the first child level (top-level sections)
+      const top = root.children || [];
+      top.forEach(section => {
+        const card = document.createElement('div');
+        card.className = "border border-slate-200 rounded-2xl p-4";
+        const h = document.createElement('h3');
+        h.className = "text-lg font-semibold flex items-center gap-2";
+        h.innerHTML = `<span>${highlight(section.title, filterTerm)}</span> <span class="badge">${countLeaves(section)} pages</span>`;
+        card.appendChild(h);
+
+        const list = document.createElement('div');
+        list.className = "mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2";
+
+        // gather leaves under this section
+        const leaves = [];
+        walk(section, (n, d, path)=>{
+          if (!n.children || n.children.length === 0) {
+            leaves.push(n);
+          }
+        });
+
+        leaves
+          .filter(n => !filterTerm || n.title.toLowerCase().includes(filterTerm))
+          .slice(0, 80) // cap per section for readability
+          .forEach(n => {
+            const item = document.createElement('a');
+            const url = n.meta && n.meta.url ? n.meta.url : '#';
+            item.href = url;
+            if (url !== '#') { item.target = "_blank"; item.rel = "noopener"; }
+            item.className = "group flex items-start gap-2 p-2 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200";
+            item.innerHTML = `
+              <svg class="w-4 h-4 mt-1 text-slate-400 group-hover:text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              <div>
+                <div class="text-sm font-medium">${highlight(n.title, filterTerm)}</div>
+                ${n.meta && n.meta.url ? `<div class="text-xs text-slate-500 truncate max-w-[40ch]">${escapeHtml(n.meta.url)}</div>` : ''}
+              </div>`;
+            list.appendChild(item);
+          });
+        card.appendChild(list);
+        container.appendChild(card);
+      });
+    }
+
+    function countLeaves(node) {
+      let c=0; walk(node, (n)=>{ if(!n.children || n.children.length===0) c++; }); return c;
+    }
+
+    // --- App boot ---
+    const search = $('#search');
+    const viewTreeBtn = $('#view-tree');
+    const viewSiteBtn = $('#view-sitemap');
+    const treeView = $('#tree-view');
+    const siteView = $('#sitemap-view');
+    const treeDiv = $('#tree');
+    const sitemapDiv = $('#sitemap');
+
+    let ROOT = null;
+
+    function updateStats() {
+      const flat = flatten(ROOT);
+      $('#stat-nodes').textContent = flat.length.toLocaleString();
+      $('#stat-linked').textContent = countLinked(ROOT).toLocaleString();
+      $('#stat-top').textContent = (ROOT.children?ROOT.children.length:0);
+      const d = new Date();
+      $('#stat-build').textContent = d.toLocaleString();
+    }
+
+    function renderAll() {
+      const term = search.value.trim().toLowerCase();
+      renderTree(treeDiv, ROOT, term);
+      buildSitemap(sitemapDiv, ROOT, term);
+      updateStats();
+    }
+
+    // Toggle views
+    viewTreeBtn.addEventListener('click', () => {
+      treeView.classList.remove('hidden');
+      siteView.classList.add('hidden');
+      viewTreeBtn.classList.add('bg-black/90','text-white');
+      viewSiteBtn.classList.remove('bg-black/90','text-white');
+    });
+    viewSiteBtn.addEventListener('click', () => {
+      siteView.classList.remove('hidden');
+      treeView.classList.add('hidden');
+      viewSiteBtn.classList.add('bg-black/90','text-white');
+      viewTreeBtn.classList.remove('bg-black/90','text-white');
+    });
+
+    // Debounced search
+    let t;
+    search.addEventListener('input', () => { clearTimeout(t); t = setTimeout(renderAll, 120); });
+
+    // Fetch JSON produced from the spreadsheet
+    async function boot() {
+      try {
+        const res = await fetch('site_data.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Missing site_data.json. Place it next to index.html');
+        ROOT = await res.json();
+      } catch (e) {
+        // Friendly fallback with instructions
+        ROOT = {
+          title: "Your Site Root",
+          children: [
+            { title: "Getting Started", children: [ { title: "Overview", meta: { url: "#" } }, { title: "Policies", meta:{ url: "#" } } ] },
+            { title: "Research Support", children: [ { title: "Funding", children: [ { title: "Grants", meta:{ url: "#" } } ] } ] }
+          ]
+        };
+        console.warn(e);
+        const warn = document.createElement('div');
+        warn.className = "max-w-6xl mx-auto mt-4 p-3 rounded-xl bg-yellow-50 border border-yellow-200 text-yellow-800";
+        warn.innerHTML = `⚠️ <strong>site_data.json not found.</strong> Showing demo data. Put the exported <code>site_data.json</code> in the same folder as <code>index.html</code>.`;
+        document.body.prepend(warn);
+      }
+      renderAll();
+    }
+
+    boot();
   </script>
 </body>
 </html>

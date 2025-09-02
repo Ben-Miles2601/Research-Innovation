@@ -1,313 +1,171 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Research & Innovation — Research Support | Tree & Sitemap</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Support Sitemap</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --card: 255 255 255; --muted: 245 246 248; }
-    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
-    .card { background: rgb(var(--card)); box-shadow: 0 10px 30px rgba(0,0,0,.06); border-radius: 1rem; }
-    .tree-line { position: relative; }
-    .tree-line::before { content: ""; position: absolute; left: -22px; top: 1.25rem; bottom: -0.75rem; width: 1px; background: #e5e7eb; }
-    .tree-line::after  { content: ""; position: absolute; left: -22px; top: 1.25rem; width: 18px; height: 1px; background: #e5e7eb; }
-    .tree-root > .tree-line::before { display:none; }
-    .tree-root > .tree-line::after { display:none; }
-    .chev { transition: transform .2s ease; }
-    .rotate-90 { transform: rotate(90deg); }
-    .btn { @apply inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50; }
-    .badge { @apply inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-600; }
-    .pill { @apply px-3 py-1.5 rounded-full text-sm font-medium border border-slate-200; }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 </head>
-<body class="bg-[rgb(var(--muted))] text-slate-800">
-  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-slate-200/60">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 grid place-content-center bg-black text-white rounded-2xl font-bold">R&I</div>
-        <div>
-          <h1 class="text-xl md:text-2xl font-semibold">Research & Innovation — Research Support</h1>
-          <p class="text-sm text-slate-500">Interactive site map / tree diagram generated from your spreadsheet</p>
-        </div>
-      </div>
+<body class="bg-gray-50 text-gray-800">
+  <div class="max-w-7xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">Research & Innovation Sitemap</h1>
 
-      <div class="flex flex-wrap gap-2 items-center">
-        <label class="relative">
-          <svg class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-          <input id="search" type="search" placeholder="Search pages…" class="w-72 md:w-80 pl-10 pr-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-300" />
-        </label>
-        <div class="hidden md:block w-px h-6 bg-slate-200 mx-1"></div>
-        <button id="view-tree" class="pill bg-black/90 text-white">Tree</button>
-        <button id="view-sitemap" class="pill">Sitemap</button>
-      </div>
+    <!-- Controls -->
+    <div class="flex flex-wrap gap-4 mb-6">
+      <button id="treeBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">Tree View</button>
+      <button id="sitemapBtn" class="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700">Sitemap View</button>
+      <input id="search" type="search" placeholder="Search..." class="px-4 py-2 border rounded-lg w-64" />
     </div>
-  </header>
 
-  <main class="max-w-6xl mx-auto p-4">
-    <section id="stats" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-      <div class="card p-4">
-        <div class="text-xs text-slate-500">Total nodes</div>
-        <div id="stat-nodes" class="text-2xl font-semibold">—</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs text-slate-500">Pages with links</div>
-        <div id="stat-linked" class="text-2xl font-semibold">—</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs text-slate-500">Top-level sections</div>
-        <div id="stat-top" class="text-2xl font-semibold">—</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs text-slate-500">Last build</div>
-        <div id="stat-build" class="text-2xl font-semibold">—</div>
-      </div>
-    </section>
-
-    <!-- Tree View -->
-    <section id="tree-view" class="card p-4 md:p-6">
-      <div id="tree" class="tree-root"></div>
-    </section>
-
-    <!-- Sitemap View -->
-    <section id="sitemap-view" class="card p-4 md:p-6 hidden">
-      <div id="sitemap" class="grid md:grid-cols-2 gap-6"></div>
-    </section>
-  </main>
-
-  <footer class="max-w-6xl mx-auto px-4 py-10 text-center text-sm text-slate-500">
-    Built from <code>site_data.json</code>. Host this file alongside <code>index.html</code> on GitHub Pages.
-  </footer>
+    <!-- Container -->
+    <div id="visualisation" class="bg-white p-6 rounded-2xl shadow"></div>
+  </div>
 
   <script>
-    // --- Utilities ---
-    const $ = (q, el=document) => el.querySelector(q);
-    const $$ = (q, el=document) => Array.from(el.querySelectorAll(q));
-
-    function walk(node, fn, depth=0, path=[]) {
-      fn(node, depth, path);
-      (node.children||[]).forEach(ch => walk(ch, fn, depth+1, [...path, node]));
+    async function loadData() {
+      const res = await fetch('site_data.json');
+      return await res.json();
     }
 
-    function flatten(root) {
-      const out = [];
-      walk(root, (n, d, path) => out.push({ node:n, depth:d, path:path.map(p=>p.title) }));
-      return out;
-    }
+    function renderTree(data) {
+      const width = 1000, height = 600;
+      const root = d3.hierarchy(data);
 
-    function countLinked(root) {
-      let c = 0;
-      walk(root, (n)=>{ if (n.meta && n.meta.url) c++; });
-      return c;
-    }
+      root.dx = 20;
+      root.dy = width / (root.height + 2);
+      d3.tree().nodeSize([root.dx, root.dy])(root);
 
-    function renderTree(container, root, filterTerm="") {
-      container.innerHTML = "";
-
-      function makeRow(n, depth) {
-        const hasKids = (n.children && n.children.length);
-        const id = crypto.randomUUID();
-        const row = document.createElement('div');
-        row.className = `tree-line pl-${Math.min(depth*6, 24)} relative`;
-
-        const visible = document.createElement('div');
-        visible.className = "flex items-start gap-2 py-2";
-
-        // Chevron
-        const chev = document.createElement('button');
-        chev.className = "chev mt-1 w-5 h-5 grid place-content-center rounded hover:bg-slate-100";
-        chev.setAttribute('aria-label','toggle');
-        chev.innerHTML = hasKids ? `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>` : `<span class="w-1.5 h-1.5 rounded-full bg-slate-300 block"></span>`;
-
-        // Title & meta
-        const title = document.createElement('div');
-        title.className = "flex-1";
-        const name = document.createElement('div');
-        name.className = "font-medium leading-6";
-        name.innerHTML = highlight(n.title, filterTerm);
-        title.appendChild(name);
-
-        if (n.meta && (n.meta.url || n.meta.notes)) {
-          const meta = document.createElement('div');
-          meta.className = "flex flex-wrap gap-2 mt-1";
-          if (n.meta.url) {
-            const a = document.createElement('a');
-            a.href = n.meta.url; a.target = "_blank"; a.rel = "noopener";
-            a.className = "btn text-xs";
-            a.innerHTML = `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg> Open page`;
-            meta.appendChild(a);
-          }
-          const info = document.createElement('span');
-          info.className = "badge";
-          const lm = n.meta.last_modified ? ` • ${n.meta.last_modified}` : "";
-          const sf = n.meta.source_file ? ` • ${n.meta.source_file}` : "";
-          info.textContent = `${n.meta.sheet || ""}${lm}${sf}`.replace(/^\s+•\s+/,'');
-          if (info.textContent) meta.appendChild(info);
-          title.appendChild(meta);
-        }
-
-        // Children container
-        const kids = document.createElement('div');
-        kids.className = "pl-6";
-        kids.id = id;
-
-        // Attach
-        visible.appendChild(chev);
-        visible.appendChild(title);
-        row.appendChild(visible);
-        row.appendChild(kids);
-
-        if (hasKids) {
-          // default expanded for root & top-level
-          let expanded = depth < 2;
-          if (!expanded) kids.classList.add('hidden');
-          if (expanded) chev.classList.add('rotate-90');
-          chev.addEventListener('click', () => {
-            expanded = !expanded;
-            kids.classList.toggle('hidden');
-            chev.classList.toggle('rotate-90');
-          });
-          n.children.forEach(ch => kids.appendChild(makeRow(ch, depth+1)));
-        } else {
-          chev.disabled = true;
-        }
-
-        return row;
-      }
-
-      container.appendChild(makeRow(root, 0));
-    }
-
-    function highlight(text, term) {
-      if (!term) return escapeHtml(text);
-      const re = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'ig');
-      return escapeHtml(text).replace(re, '<mark class="px-1 rounded bg-yellow-200/70">$1</mark>');
-    }
-
-    function escapeHtml(s) { return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c])); }
-
-    function buildSitemap(container, root, filterTerm="") {
-      container.innerHTML = "";
-      // Group by the first child level (top-level sections)
-      const top = root.children || [];
-      top.forEach(section => {
-        const card = document.createElement('div');
-        card.className = "border border-slate-200 rounded-2xl p-4";
-        const h = document.createElement('h3');
-        h.className = "text-lg font-semibold flex items-center gap-2";
-        h.innerHTML = `<span>${highlight(section.title, filterTerm)}</span> <span class="badge">${countLeaves(section)} pages</span>`;
-        card.appendChild(h);
-
-        const list = document.createElement('div');
-        list.className = "mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2";
-
-        // gather leaves under this section
-        const leaves = [];
-        walk(section, (n, d, path)=>{
-          if (!n.children || n.children.length === 0) {
-            leaves.push(n);
-          }
-        });
-
-        leaves
-          .filter(n => !filterTerm || n.title.toLowerCase().includes(filterTerm))
-          .slice(0, 80) // cap per section for readability
-          .forEach(n => {
-            const item = document.createElement('a');
-            const url = n.meta && n.meta.url ? n.meta.url : '#';
-            item.href = url;
-            if (url !== '#') { item.target = "_blank"; item.rel = "noopener"; }
-            item.className = "group flex items-start gap-2 p-2 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200";
-            item.innerHTML = `
-              <svg class="w-4 h-4 mt-1 text-slate-400 group-hover:text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-              <div>
-                <div class="text-sm font-medium">${highlight(n.title, filterTerm)}</div>
-                ${n.meta && n.meta.url ? `<div class="text-xs text-slate-500 truncate max-w-[40ch]">${escapeHtml(n.meta.url)}</div>` : ''}
-              </div>`;
-            list.appendChild(item);
-          });
-        card.appendChild(list);
-        container.appendChild(card);
+      let x0 = Infinity;
+      let x1 = -x0;
+      root.each(d => {
+        if (d.x > x1) x1 = d.x;
+        if (d.x < x0) x0 = d.x;
       });
+
+      const svg = d3.create("svg")
+        .attr("viewBox", [0, 0, width, x1 - x0 + root.dx * 2])
+        .classed("w-full", true);
+
+      const g = svg.append("g").attr("transform", `translate(${root.dy / 3},${root.dx - x0})`);
+
+      // Links
+      g.append("g")
+        .selectAll("path")
+        .data(root.links())
+        .join("path")
+        .attr("fill", "none")
+        .attr("stroke", "#ccc")
+        .attr("stroke-width", 2)
+        .attr("d", d3.linkHorizontal().x(d => d.y).y(d => d.x));
+
+      // Nodes
+      const node = g.append("g")
+        .selectAll("g")
+        .data(root.descendants())
+        .join("g")
+        .attr("transform", d => `translate(${d.y},${d.x})`);
+
+      node.append("circle")
+        .attr("r", 6)
+        .attr("fill", d => d.children ? "#2563eb" : "#16a34a")
+        .attr("stroke", "#fff")
+        .attr("stroke-width", 2);
+
+      node.append("a")
+        .attr("href", d => d.data.url || null)
+        .attr("target", "_blank")
+        .append("text")
+        .attr("dy", "0.32em")
+        .attr("x", d => d.children ? -10 : 10)
+        .attr("text-anchor", d => d.children ? "end" : "start")
+        .attr("class", "font-medium text-gray-700 hover:underline")
+        .text(d => d.data.name);
+
+      return svg.node();
     }
 
-    function countLeaves(node) {
-      let c=0; walk(node, (n)=>{ if(!n.children || n.children.length===0) c++; }); return c;
-    }
+    function renderSitemap(data) {
+      const container = document.createElement('div');
+      container.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6";
 
-    // --- App boot ---
-    const search = $('#search');
-    const viewTreeBtn = $('#view-tree');
-    const viewSiteBtn = $('#view-sitemap');
-    const treeView = $('#tree-view');
-    const siteView = $('#sitemap-view');
-    const treeDiv = $('#tree');
-    const sitemapDiv = $('#sitemap');
+      function renderSection(node) {
+        const card = document.createElement('div');
+        card.className = "p-4 bg-gray-100 rounded-xl shadow hover:shadow-md";
 
-    let ROOT = null;
+        const title = document.createElement('h2');
+        title.className = "text-lg font-semibold mb-3";
+        title.textContent = node.name;
+        card.appendChild(title);
 
-    function updateStats() {
-      const flat = flatten(ROOT);
-      $('#stat-nodes').textContent = flat.length.toLocaleString();
-      $('#stat-linked').textContent = countLinked(ROOT).toLocaleString();
-      $('#stat-top').textContent = (ROOT.children?ROOT.children.length:0);
-      const d = new Date();
-      $('#stat-build').textContent = d.toLocaleString();
-    }
-
-    function renderAll() {
-      const term = search.value.trim().toLowerCase();
-      renderTree(treeDiv, ROOT, term);
-      buildSitemap(sitemapDiv, ROOT, term);
-      updateStats();
-    }
-
-    // Toggle views
-    viewTreeBtn.addEventListener('click', () => {
-      treeView.classList.remove('hidden');
-      siteView.classList.add('hidden');
-      viewTreeBtn.classList.add('bg-black/90','text-white');
-      viewSiteBtn.classList.remove('bg-black/90','text-white');
-    });
-    viewSiteBtn.addEventListener('click', () => {
-      siteView.classList.remove('hidden');
-      treeView.classList.add('hidden');
-      viewSiteBtn.classList.add('bg-black/90','text-white');
-      viewTreeBtn.classList.remove('bg-black/90','text-white');
-    });
-
-    // Debounced search
-    let t;
-    search.addEventListener('input', () => { clearTimeout(t); t = setTimeout(renderAll, 120); });
-
-    // Fetch JSON produced from the spreadsheet
-    async function boot() {
-      try {
-        const res = await fetch('site_data.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error('Missing site_data.json. Place it next to index.html');
-        ROOT = await res.json();
-      } catch (e) {
-        // Friendly fallback with instructions
-        ROOT = {
-          title: "Your Site Root",
-          children: [
-            { title: "Getting Started", children: [ { title: "Overview", meta: { url: "#" } }, { title: "Policies", meta:{ url: "#" } } ] },
-            { title: "Research Support", children: [ { title: "Funding", children: [ { title: "Grants", meta:{ url: "#" } } ] } ] }
-          ]
-        };
-        console.warn(e);
-        const warn = document.createElement('div');
-        warn.className = "max-w-6xl mx-auto mt-4 p-3 rounded-xl bg-yellow-50 border border-yellow-200 text-yellow-800";
-        warn.innerHTML = `⚠️ <strong>site_data.json not found.</strong> Showing demo data. Put the exported <code>site_data.json</code> in the same folder as <code>index.html</code>.`;
-        document.body.prepend(warn);
+        if (node.children) {
+          const list = document.createElement('ul');
+          list.className = "space-y-2";
+          node.children.forEach(child => {
+            const li = document.createElement('li');
+            if (child.url) {
+              li.innerHTML = `<a href="${child.url}" target="_blank" class="text-blue-600 hover:underline">${child.name}</a>`;
+            } else {
+              li.textContent = child.name;
+            }
+            list.appendChild(li);
+          });
+          card.appendChild(list);
+        }
+        return card;
       }
-      renderAll();
+
+      if (data.children) {
+        data.children.forEach(child => {
+          container.appendChild(renderSection(child));
+        });
+      }
+
+      return container;
     }
 
-    boot();
+    function filterTree(node, term) {
+      if (!term) return node;
+      const match = node.name.toLowerCase().includes(term.toLowerCase());
+      if (node.children) {
+        const filteredChildren = node.children.map(child => filterTree(child, term)).filter(Boolean);
+        if (filteredChildren.length || match) {
+          return { ...node, children: filteredChildren };
+        }
+      }
+      return match ? { ...node } : null;
+    }
+
+    (async () => {
+      const rawData = await loadData();
+      let currentMode = 'tree';
+
+      const vis = document.getElementById('visualisation');
+      const searchInput = document.getElementById('search');
+
+      function render() {
+        vis.innerHTML = '';
+        const filtered = filterTree(rawData, searchInput.value);
+        if (!filtered) {
+          vis.innerHTML = '<p class="text-red-500">No results found</p>';
+          return;
+        }
+        if (currentMode === 'tree') vis.appendChild(renderTree(filtered));
+        else vis.appendChild(renderSitemap(filtered));
+      }
+
+      document.getElementById('treeBtn').onclick = () => {
+        currentMode = 'tree';
+        render();
+      };
+      document.getElementById('sitemapBtn').onclick = () => {
+        currentMode = 'sitemap';
+        render();
+      };
+      searchInput.oninput = render;
+
+      render();
+    })();
   </script>
 </body>
 </html>

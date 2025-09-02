@@ -11,7 +11,11 @@
   <style>
     :root { --card: 255 255 255; --muted: 245 246 248; }
     body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+
+    /* Card look used across the page */
     .card { background: rgb(var(--card)); box-shadow: 0 10px 30px rgba(0,0,0,.06); border-radius: 1rem; }
+
+    /* Tree visual helpers (keeps your original layout) */
     .tree-line { position: relative; }
     .tree-line::before { content: ""; position: absolute; left: -22px; top: 1.25rem; bottom: -0.75rem; width: 1px; background: #e5e7eb; }
     .tree-line::after  { content: ""; position: absolute; left: -22px; top: 1.25rem; width: 18px; height: 1px; background: #e5e7eb; }
@@ -19,9 +23,100 @@
     .tree-root > .tree-line::after { display:none; }
     .chev { transition: transform .2s ease; }
     .rotate-90 { transform: rotate(90deg); }
-    .btn { @apply inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50; }
-    .badge { @apply inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-600; }
-    .pill { @apply px-3 py-1.5 rounded-full text-sm font-medium border border-slate-200; }
+
+    /* Replacements for @apply (works without Tailwind build step) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e6eef6;
+      color: #334155;
+      background: transparent;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    .btn:focus { outline: 3px solid rgba(59,130,246,0.12); outline-offset: 2px; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    .pill {
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 1px solid #e6eef6;
+      background: white;
+    }
+
+    /* SITEMAP: prevent overlapping and force truncation of long text */
+    #sitemap { word-break: break-word; }
+
+    /* Each sitemap card (the outer container created in JS uses border + rounded classes) */
+    #sitemap > div > .border {
+      /* nothing required here; kept for safety */
+    }
+
+    /* The list of page items inside cards - ensure they are full width and can shrink */
+    #sitemap a.group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+      width: 100%;
+      min-width: 0; /* critical: allow flex child to shrink so truncation works */
+      overflow: hidden;
+    }
+
+    /* Make sure text columns behave inside the flex container */
+    #sitemap a.group > div { min-width: 0; }
+
+    /* Title / headline for each item */
+    #sitemap .text-sm { 
+      display: block;
+      font-weight: 600;
+      line-height: 1.15;
+      color: #0f172a;
+      margin-bottom: 0.15rem;
+      word-break: break-word;
+    }
+
+    /* URL / meta line (truncated) */
+    #sitemap .text-xs {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 40ch; /* keeps it short and prevents overlap */
+      color: #64748b;
+      font-size: 0.78rem;
+    }
+
+    /* ensure grid cards flow and have room */
+    #sitemap .grid { gap: 0.5rem; }
+
+    /* a minor hover effect so items look clickable */
+    #sitemap a.group:hover { background: #f8fafc; }
+
+    /* small responsive tweak - keep columns readable on small screens */
+    @media (max-width: 640px) {
+      #sitemap .grid { grid-template-columns: 1fr !important; }
+      .tree-line::before { left: -12px; }
+      .tree-line::after { left: -12px; }
+    }
   </style>
 </head>
 <body class="bg-[rgb(var(--muted))] text-slate-800">

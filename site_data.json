@@ -17,106 +17,166 @@
         },
         "Open Research": {
           "url": "/research-support/research-innovation-policies/open-research"
-        }
-      }
-    },
-    "Research ethics and integrity": {
-      "children": {
-        "Ethics guidance": {
-          "url": "/research-support/research-ethics-integrity/ethics-guidance"
         },
-        "Ethics policy": {
-          "url": "/research-support/research-ethics-integrity/ethics-policy"
-        }
-      }
-    },
-    "Equality, diversity and inclusion": {
-      "children": {
-        "EDI in Research": {
-          "url": "/research-support/equality-diversity-inclusion/edi-in-research"
+        "Funding opportunities": {
+          "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Funding-opportunities.aspx",
+          "children": {
+            "Pivot-RP": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Pivot-RP.aspx"
+            },
+            "Curated searches on Pivot": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Curate.aspx"
+            },
+            "Guide to UKRI Funding Service or Resources for researchers using new UKRI funding service": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Resources-for-Researchers-Using-the-New-UKRI-Funding-Service.aspx"
+            },
+            "Vision and Approach": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Vision-and-Approach.aspx#vision"
+            },
+            "Applicant and Team Capability to Deliver": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Applicant-and-Team-Capability-to-Deliver.aspx"
+            },
+            "Ethics and Responsible Research and Innovation (RRI)": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Ethics-and-Responsible-Research-and-Innovation-(RRI).aspx"
+            },
+            "Applying for funding": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Applying-for-Funding(1).aspx",
+              "children": {
+                "Developing your proposal": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Developing-your-proposal.aspx"
+                },
+                "Submission checklist": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Submission-checklist.aspx",
+                  "children": {
+                    "EPSRC Standard Grants quick start guide": {
+                      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Standard-Grants-quick-start-guide.aspx"
+                    },
+                    "EPSRC Fellowships checklist": {
+                      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships-checklist(1).aspx"
+                    },
+                    "Checking the funder remit": {
+                      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Checking-the-funder-remit.aspx"
+                    }
+                  }
+                },
+                "Resources and tips": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Resources-and-tips.aspx",
+                  "children": {
+                    "Research data management explained": {
+                      "url": "https://library.leeds.ac.uk/info/14062/research_data_management/61/research_data_management_explained"
+                    }
+                  }
+                },
+                "Peer review": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Peer-review.aspx",
+                  "children": {
+                    "Key questions for researchers": {
+                      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Key-questions-for-researchers.aspx"
+                    }
+                  }
+                },
+                "Institutional letters of support": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Institutional-letters-of-support.aspx"
+                },
+                "Costing and Pricing": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Costing-and-Pricing.aspx"
+                },
+                "Approval Process": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Approval-Process.aspx"
+                },
+                "Submission Systems": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Submission-Systems.aspx",
+                  "children": {
+                    "Kristal Phase 2": {
+                      "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Kristal-Phase-2.aspx"
+                    }
+                  }
+                },
+                "After submission - the process": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/After-submission.aspx"
+                },
+                "Response to reviewers": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Response-to-reviewers.aspx"
+                },
+                "Interviews": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Interviews.aspx"
+                },
+                "What if you're not successful": {
+                  "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/What-if-you%27re-not-successful-.aspx"
+                }
+              }
+            },
+            "Institutionally coordinated opportunities": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Institutionally-coordinated-opportunities.aspx"
+            },
+            "EDI and internal demand management": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EDI-and-internal-demand-management.aspx"
+            },
+            "BBSRC Fellowship": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/BBSRC-Fellowship.aspx"
+            },
+            "EPSRC Fellowships 2024 internal process and resource": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/EPSRC-Fellowships--2024-internal-process-and-resources.aspx"
+            }
+          }
         },
-        "EDI strategy": {
-          "url": "/research-support/equality-diversity-inclusion/edi-strategy"
+        "Research ethics and integrity": {
+          "children": {
+            "Ethics guidance": {
+              "url": "/research-support/research-ethics-integrity/ethics-guidance"
+            },
+            "Ethics policy": {
+              "url": "/research-support/research-ethics-integrity/ethics-policy"
+            }
+          }
+        },
+        "Equality, diversity and inclusion": {
+          "children": {
+            "EDI in Research": {
+              "url": "/research-support/equality-diversity-inclusion/edi-in-research"
+            },
+            "EDI strategy": {
+              "url": "/research-support/equality-diversity-inclusion/edi-strategy"
+            }
+          }
+        },
+        "Trusted Research": {
+          "url": "/research-support/trusted-research"
+        },
+        "Innovation funding": {
+          "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Innovation-funding.aspx",
+          "children": {
+            "Institutional Translational Funding": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Institutional-Translational-Funding.aspx"
+            },
+            "Research translation and industry linked funding": {
+              "url": "https://leeds365.sharepoint.com/:u:/r/sites/Research-Support/SitePages/Research%20translation%20and%20industry%20linked%20funding.aspx?csf=1&web=1&e=zYcITt"
+            },
+            "Knowledge Transfer Partnerships": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Knowledge-Transfer-Partnerships-(KTPs).aspx"
+            }
+          }
+        },
+        "Managing awards": {
+          "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Managing-awards.aspx",
+          "children": {
+            "Contracts for research": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Contracts-for-research.aspx"
+            },
+            "Conflict of interest": {
+              "url": "https://ris.leeds.ac.uk/applying-for-funding/developing-your-proposal/conflict-of-interest/"
+            },
+            "Due Diligence": {
+              "url": "https://leeds365.sharepoint.com/sites/ResearchOperations/SitePages/Due-Diligence.aspx?source=https%3a//leeds365.sharepoint.com/sites/ResearchSupport/SitePages/Forms/ByAuthor.aspx"
+            },
+            "Equipment funding": {
+              "url": "https://leeds365.sharepoint.com/sites/Research-Support/SitePages/Equipment-funding.aspx"
+            }
+          }
         }
       }
-    },
-    "Trusted Research": {
-      "url": "/research-support/trusted-research"
     }
-  }
-}
-{
-  "Innovation funding": {
-    "Funding opportunities": {
-      "children": {
-        "Innovate UK Smart Grants": {
-          "url": "/innovation-funding/funding-opportunities/innovate-uk-smart-grants"
-        },
-        "Innovation loans": {
-          "url": "/innovation-funding/funding-opportunities/innovation-loans"
-        },
-        "Knowledge Transfer Partnerships": {
-          "url": "/innovation-funding/funding-opportunities/knowledge-transfer-partnerships"
-        }
-      }
-    },
-    "Support for businesses": {
-      "children": {
-        "Business Growth Support": {
-          "url": "/innovation-funding/support-for-businesses/business-growth-support"
-        },
-        "Innovation Hubs": {
-          "url": "/innovation-funding/support-for-businesses/innovation-hubs"
-        }
-      }
-    },
-    "Collaboration": {
-      "children": {
-        "Collaborative R&D": {
-          "url": "/innovation-funding/collaboration/collaborative-rd"
-        },
-        "UKRI Collaborations": {
-          "url": "/innovation-funding/collaboration/ukri-collaborations"
-        }
-      }
-    }
-  }
-}
-{
-  "Managing awards": {
-    "Grant management": {
-      "children": {
-        "Je-S system": {
-          "url": "/managing-awards/grant-management/je-s-system"
-        },
-        "Grant conditions": {
-          "url": "/managing-awards/grant-management/grant-conditions"
-        }
-      }
-    },
-    "Reporting": {
-      "children": {
-        "Outcomes reporting": {
-          "url": "/managing-awards/reporting/outcomes-reporting"
-        },
-        "Financial reporting": {
-          "url": "/managing-awards/reporting/financial-reporting"
-        }
-      }
-    },
-    "Payments": {
-      "children": {
-        "Payment schedule": {
-          "url": "/managing-awards/payments/payment-schedule"
-        },
-        "Claiming costs": {
-          "url": "/managing-awards/payments/claiming-costs"
-        }
-      }
-    }
-  }
-}
-{
+  },
   "News and events": {
     "News": {
       "url": "/news-and-events/news"
@@ -127,9 +187,7 @@
     "Blogs": {
       "url": "/news-and-events/blogs"
     }
-  }
-}
-{
+  },
   "About us": {
     "Our organisation": {
       "children": {
